@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Blog</h1>
+  <ul id="blog-list"></ul>
+
+  <script>
+    // Fetch and display blog posts
+    const blogFolder = 'blogs'; // Path to your blogs folder
+    const blogList = document.getElementById('blog-list');
+
+    const blogs = [
+      { title: "First Blog Post", file: "./Critical Exposed Nagios Dashboard.md" },
+      { title: "Second Blog Post", file: "blogs/blog2.md" }
+    ];
+
+    blogs.forEach(blog => {
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = blog.file; // Link to the .md file
+      link.textContent = blog.title; // Blog title
+      link.target = "_blank"; // Open in a new tab
+      listItem.appendChild(link);
+      blogList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
